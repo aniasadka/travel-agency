@@ -3,6 +3,14 @@ import tripList from '../data/trips.json';
 
 import globalReducer from './globalRedux';
 import filtersReducer from './filtersRedux';
+import orderReducer from './orderRedux';
+
+// ...
+
+const reducers = {
+  filters: filtersReducer,
+  order: orderReducer,
+};
 
 // define initial state and shallow-merge initial data
 const initialState = {
@@ -18,6 +26,11 @@ const initialState = {
       from: 1,
       to: 14,
     },
+  },
+  order: {
+    trip: null,
+    email: '',
+    options: {},
   },
 };
 
@@ -47,6 +60,7 @@ const store = createStore(
   storeReducer,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  
 );
 
 export default store;
