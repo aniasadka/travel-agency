@@ -7,10 +7,6 @@ import orderReducer from './orderRedux';
 
 // ...
 
-const reducers = {
-  filters: filtersReducer,
-  order: orderReducer,
-};
 
 // define initial state and shallow-merge initial data
 const initialState = {
@@ -37,6 +33,7 @@ const initialState = {
 // define reducers
 const reducers = {
   filters: filtersReducer,
+  order: orderReducer,
 };
 
 // add blank reducers for initial state properties without reducers
