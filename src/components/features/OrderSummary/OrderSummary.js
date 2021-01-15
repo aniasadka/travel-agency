@@ -9,7 +9,7 @@ const OrderSummary = (props) => {
   const {tripCost, options} =  props;
   return (
     <h2 className={styles.component}>
-      Total:<strong>$ {calculateTotal(formatPrice(tripCost), options).toFixed(2)} </strong>
+      Total:<strong>$ {calculateTotal(formatPrice(tripCost), options)} </strong>
     </h2>
   );
 };
