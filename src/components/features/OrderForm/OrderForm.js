@@ -11,7 +11,7 @@ const OrderForm = ({tripCost, options}) => (
     <Row>
       <Col xs={12}>
         <PageTitle text='Trip options' />
-        <OrderSummary tripCost={tripCost} />
+        <OrderSummary tripCost={tripCost} options={options} />
       </Col>
     </Row>
   </Grid>
