@@ -2,18 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './OrderOption.scss';
 import Icon from '../../common/Icon/Icon';
-import { formatPrice } from '../../../utils/formatPrice';
+import {formatPrice} from './../../../utils/formatPrice';
 
-const OrderOptionIcons = ({values, currentValue, setOptionValue}) => (
-  <div className={styles.icon}>
+const OrderOptionIcons = ({values, setOptionValue, currentValue, required}) => (
+  <div className={styles.dropdown}>
+
+    {required ? '' : (
+      <div value={currentValue}
+        className={styles.icon}
+        onChange={() => setOptionValue('')}>
+        <Icon name={'times-circle'}/>
+      </div>
+    )}
+
     {values.map(value => (
       <div
-        onClick={ () => setOptionValue(value.id)}
-        key={value.id} 
-        value={currentValue}
-        className={(value.id == currentValue) ? styles.iconActive: styles.icon }
+        key={value.id}
+        className={currentValue === value.id ? styles.iconActive : styles.icon}
+        onClick={() => setOptionValue(value.id)}
       >
-        <Icon name={value.icon}/>
+        <Icon name={value.icon} />
+        {value.name}
         {formatPrice(value.price)}
       </div>
     ))}
@@ -21,8 +30,9 @@ const OrderOptionIcons = ({values, currentValue, setOptionValue}) => (
 );
 
 OrderOptionIcons.propTypes = {
-  values: PropTypes.node,
-  currentValue: PropTypes.node,
+  values: PropTypes.array,
+  required: PropTypes.bool,
+  currentValue: PropTypes.string,
   setOptionValue: PropTypes.func,
 };
 
