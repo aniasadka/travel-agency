@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './OrderOption.scss';
-import {formatPrice} from './../../../utils/formatPrice';
+import { formatPrice } from './../../../utils/formatPrice';
 
 const newValueSet = (currentValue, id, checked) => {
-  if(checked){
+  if (checked) {
     return [
       ...currentValue,
       id,
@@ -13,7 +13,7 @@ const newValueSet = (currentValue, id, checked) => {
   }
 };
 
-const OrderOptionCheckboxes = ({values, currentValue, setOptionValue}) => (
+const OrderOptionCheckboxes = ({ values, currentValue, setOptionValue }) => (
   console.log('currentValue', currentValue),
   <div className={styles.checkboxes}>
     {values.map(value => (
